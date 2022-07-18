@@ -1,13 +1,14 @@
-import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { map, Observable, of } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
 import { Country } from '../common/country';
+import { map } from 'rxjs/operators';
 import { State } from '../common/state';
 
 @Injectable({
   providedIn: 'root'
 })
-export class LuvtoShopFormService {
+export class Luv2ShopFormService {
 
   private countriesUrl = 'http://localhost:8080/api/countries';
   private statesUrl = 'http://localhost:8080/api/states';
@@ -62,16 +63,17 @@ export class LuvtoShopFormService {
 
     return of(data);
   }
+
 }
 
-interface GetResponseCountries{
-  _embedded:{
-    countries:Country[];
+interface GetResponseCountries {
+  _embedded: {
+    countries: Country[];
   }
 }
 
-interface GetResponseStates{
-  _embedded:{
-    states:State[];
+interface GetResponseStates {
+  _embedded: {
+    states: State[];
   }
 }

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LuvtoShopFormService } from './luvto-shop-form.service';
+import { Luv2ShopFormService } from './luv2-shop-form.service';
 
-describe('LuvtoShopFormService', () => {
-  let service: LuvtoShopFormService;
+describe('Luv2ShopFormService', () => {
+  let service: Luv2ShopFormService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(LuvtoShopFormService);
+    service = TestBed.inject(Luv2ShopFormService);
   });
 
   it('should be created', () => {

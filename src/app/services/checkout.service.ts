@@ -8,12 +8,12 @@ import { Purchase } from '../common/purchase';
 })
 export class CheckoutService {
 
-  private purchaseUrl='http://localhost:8080/api/checkout/purchase';
+  private purchaseUrl = 'http://localhost:8080/api/checkout/purchase';
 
-  constructor(private httpClient:HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  placeOrder(purchase:Purchase):Observable<any>{
-
-    return this.httpClient.post<Purchase>(this.purchaseUrl,purchase);
+  placeOrder(purchase: Purchase): Observable<any> {
+    return this.httpClient.post<Purchase>(this.purchaseUrl, purchase);    
   }
+  
 }
