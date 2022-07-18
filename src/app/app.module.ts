@@ -18,14 +18,16 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import {  ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './components/login/login.component';
 import myAppConfig from './config/my-app-config';
-import {OktaAuthModule, OKTA_CONFIG,OktaCallbackComponent} from '@okta/okta-angular';
+import {OktaAuthModule, OKTA_CONFIG,OktaCallbackComponent, OktaAuthGuard} from '@okta/okta-angular';
 import { OktaAuth } from '@okta/okta-auth-js';
 import { LoginStatusComponent } from './components/login-status/login-status.component';
 import { config } from 'rxjs/internal/config';
+import { MembersPageComponent } from './components/members-page/members-page.component';
 
 
 const routes: Routes = [
   {path:'login/callback',component:OktaCallbackComponent},
+  {path:'members',component:MembersPageComponent,canActivate:[OktaAuthGuard]},
   {path:'login',component:LoginComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'cart-details', component: CartDetailsComponent},
@@ -62,6 +64,7 @@ function onAuthRequired(oktaAuth, injector) {
     CheckoutComponent,
     LoginComponent,
     LoginStatusComponent,
+    MembersPageComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
