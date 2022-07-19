@@ -23,11 +23,13 @@ import { OktaAuth } from '@okta/okta-auth-js';
 import { LoginStatusComponent } from './components/login-status/login-status.component';
 import { config } from 'rxjs/internal/config';
 import { MembersPageComponent } from './components/members-page/members-page.component';
+import { OrderHistoryComponent } from './components/order-history/order-history.component';
 
 
 const routes: Routes = [
   {path:'login/callback',component:OktaCallbackComponent},
   {path:'members',component:MembersPageComponent,canActivate:[OktaAuthGuard]},
+  {path:'order-history',component:OrderHistoryComponent,canActivate:[OktaAuthGuard]},
   {path:'login',component:LoginComponent},
   {path: 'checkout', component: CheckoutComponent},
   {path: 'cart-details', component: CartDetailsComponent},
@@ -65,6 +67,7 @@ function onAuthRequired(oktaAuth, injector) {
     LoginComponent,
     LoginStatusComponent,
     MembersPageComponent,
+    OrderHistoryComponent,
   ],
   imports: [
     RouterModule.forRoot(routes),
